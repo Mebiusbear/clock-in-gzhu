@@ -43,7 +43,7 @@ class ClockIn:
 
         self.driver = selenium.webdriver.Chrome(options=options)
         self.wdwait = WebDriverWait(self.driver, 30)
-        self.titlewait = WebDriverWait(self.driver, 5)
+        self.titlewait = WebDriverWait(self.driver, 10)
 
         # self.page用来表示当前页面标题，0表示初始页面
         self.page = 0
@@ -115,11 +115,9 @@ class ClockIn:
                     self.page = 3
                 case "":
                     logger.info("当前页面标题为空")
-
                     refresh_times += 1
                     if refresh_times < 6:
                         continue
-
                     raise selenium.common.exceptions.TimeoutException("页面刷新次数达到上限")
                 case _:
                     self.page = 0
@@ -129,8 +127,8 @@ class ClockIn:
         logger.info(f"当前页面标题为：{title}")
 
     def step0(self) -> None:
-        """转到统一身份认证界面"""
-        logger.info("正在转到统一身份认证页面")
+        """跳转到统一身份认证界面"""
+        logger.info("正在跳转到统一身份认证页面")
         self.driver.get(
             "https://newcas.gzhu.edu.cn/cas/\
 login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
@@ -154,16 +152,14 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
             self.driver.execute_script(script)
 
     def step2(self) -> None:
-        """转到填报健康信息 - 学生健康状况申报页面"""
+        """跳转到填报健康信息 - 学生健康状况申报页面"""
         self.titlewait.until(EC.title_contains("融合门户"))
-        logger.info("正在转到学生健康状况申报页面")
+        logger.info("正在跳转到填报健康信息 - 学生健康状况申报页面")
         self.driver.get("https://yqtb.gzhu.edu.cn/infoplus/form/XNYQSB/start")
 
     def step3(self) -> None:
         """填写并提交表单"""
-        self.titlewait.until(EC.title_contains("Loading..."))
         self.titlewait.until(EC.title_contains("表单填写与审批::加载中"))
-        self.titlewait.until(EC.title_contains("填报健康信息 - 学生健康状况申报"))
         self.wdwait.until(
             EC.element_to_be_clickable(
                 (By.XPATH, "//div[@align='right']/input[@type='checkbox']")
@@ -171,7 +167,6 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
         )
 
         logger.info("开始填表")
-
         for xpath in [
             "//div[@align='right']/input[@type='checkbox']",
             "//nobr[contains(text(), '提交')]/..",
@@ -187,7 +182,6 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
         form_error_content_list = self.driver.find_elements(
             By.XPATH, "//div[@class='line10']"
         )
-
         for form_error_content in form_error_content_list:
             button = self.driver.find_elements(
                 locate_with(By.XPATH, "//input[@type='radio']").below(
