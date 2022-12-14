@@ -54,10 +54,11 @@ class ClockIn:
         self.fail = False
 
     def __call__(self):
-        for retries in range(5):
+        retries = 1
+        while True:
             try:
-                logger.info(f"第{retries+1}次运行")
-                if retries:
+                logger.info(f"第{retries}次运行")
+                if retries != 1:
                     self.refresh()
 
                 if self.page == 0:
@@ -74,18 +75,22 @@ class ClockIn:
 
                 if self.page <= 4:
                     self.step4()
-                    break
+
+                break
             except selenium.common.exceptions.TimeoutException:
                 logger.error(traceback.format_exc())
 
                 if not self.driver.title:
-                    logger.error(f"第{retries+1}次运行失败，当前页面标题为空")
+                    logger.error(f"第{retries}次运行失败，当前页面标题为空")
                 else:
-                    logger.error(f"第{retries+1}次运行失败，当前页面标题为：{self.driver.title}")
+                    logger.error(f"第{retries}次运行失败，当前页面标题为：{self.driver.title}")
 
-                if retries == 4:
+                if retries == 7:
                     self.fail = True
                     logger.error("健康打卡失败")
+                    break
+
+                retries += 1
 
         self.driver.quit()
         self.notify()
@@ -125,7 +130,7 @@ class ClockIn:
                     logger.info("当前页面标题为空")
 
                     refresh_times += 1
-                    if refresh_times < 4:
+                    if refresh_times < 6:
                         continue
 
                     raise selenium.common.exceptions.TimeoutException("页面刷新次数达到上限")
@@ -238,18 +243,17 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
                 sys.exit("健康打卡失败")
             else:
                 sys.exit()
-        else:
-            if self.fail:
-                title = content = "健康打卡失败"
-                logger.info("推送健康打卡失败的消息")
-            else:
-                title = content = "健康打卡成功"
-                logger.info("推送健康打卡成功的消息")
 
-        if self.pushplus:
-            data = {"token": self.pushplus, "title": title, "content": content}
-            url = "http://www.pushplus.plus/send/"
-            logger.info(requests.post(url, data=data, timeout=10).text)
+        if self.fail:
+            title = content = "健康打卡失败"
+        else:
+            title = content = "健康打卡成功"
+
+        logger.info(f"推送{title}的消息")
+
+        data = {"token": self.pushplus, "title": title, "content": content}
+        url = "http://www.pushplus.plus/send/"
+        logger.info(requests.post(url, data=data, timeout=10).text)
 
 
 if __name__ == "__main__":
