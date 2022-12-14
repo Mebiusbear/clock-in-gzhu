@@ -134,7 +134,7 @@ class ClockIn:
 login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
         )
 
-    def step1(self):
+    def step1(self) -> None:
         """登录融合门户"""
         self.wdwait.until(
             EC.visibility_of_element_located(
