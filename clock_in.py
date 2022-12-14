@@ -43,7 +43,7 @@ class ClockIn:
 
         self.driver = selenium.webdriver.Chrome(options=options)
         self.wdwait = WebDriverWait(self.driver, 30)
-        self.titlewait = WebDriverWait(self.driver, 10)
+        self.titlewait = WebDriverWait(self.driver, 5)
 
         # self.page用来表示当前页面标题，0表示初始页面
         self.page = 0
@@ -130,13 +130,11 @@ class ClockIn:
         """跳转到统一身份认证界面"""
         logger.info("正在跳转到统一身份认证页面")
         self.driver.get(
-            "https://newcas.gzhu.edu.cn/cas/\
-login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
+            "https://newcas.gzhu.edu.cn/cas/login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
         )
 
     def step1(self):
         """登录融合门户"""
-        self.titlewait.until(EC.title_contains("Unified Identity Authentication"))
         self.wdwait.until(
             EC.visibility_of_element_located(
                 (By.XPATH, "//div[@class='robot-mag-win small-big-small']")
@@ -159,7 +157,6 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
 
     def step3(self) -> None:
         """填写并提交表单"""
-        self.titlewait.until(EC.title_contains("表单填写与审批::加载中"))
         self.wdwait.until(
             EC.element_to_be_clickable(
                 (By.XPATH, "//div[@align='right']/input[@type='checkbox']")
