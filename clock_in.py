@@ -130,7 +130,8 @@ class ClockIn:
         """跳转到统一身份认证界面"""
         logger.info("正在跳转到统一身份认证页面")
         self.driver.get(
-            "https://newcas.gzhu.edu.cn/cas/login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
+            "https://newcas.gzhu.edu.cn/cas/\
+login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
         )
 
     def step1(self):
