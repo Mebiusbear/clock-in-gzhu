@@ -126,11 +126,14 @@ class ClockIn:
                     self.page = 3
                 case "填报健康信息 - 学生健康状况申报" | "表单填写与审批::加载中":
                     self.page = 4
-                case "":
-                    logger.info("当前页面标题为空")
+                case "" | "Loading..." as resp:
+                    if not resp:
+                        logger.info("当前页面标题为空")
+                    else:
+                        logger.info("当前页面标题为", resp)
 
                     refresh_times += 1
-                    if refresh_times < 6:
+                    if refresh_times < 7:
                         continue
 
                     raise selenium.common.exceptions.TimeoutException("页面刷新次数达到上限")
