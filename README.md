@@ -2,28 +2,24 @@
 
 ## 简介
 
-1. 脚本使用Github Actions进行健康打卡
-2. 脚本将在北京时间07点30分自动运行
-3. 脚本支持自动上游同步更新
-4. 脚本支持pushplus 推送加 推送消息
+脚本使用Github Actions进行健康打卡  
+将在北京时间07点30分自动运行  
+支持自动上游同步更新  
+支持pushplus 推送加 推送消息
 
 ## 使用教程
 
 ### 必要设置
 
-首先Fork本项目并进入Fork的项目中
+1. Fork本项目并进入Fork的项目中
+2. 创建两个[Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")，如下表
 
-然后创建两个[Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")
+|Secret|Name|Value|
+|-|-|-|
+|1|XUHAO|学号|
+|2|MIMA|密码|
 
-- 第一个Secret的Name为XUHAO，注意XUHAO要大写
-- Value为学号
-
----
-
-- 第二个Secret的Name为MIMA，注意MIMA要大写
-- Value是密码
-
-最后开启[Workflows](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow "教程")，有两个Workflows：一个打卡，一个上游同步
+3. 开启[Workflows](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow "教程")，有两个Workflows：一个打卡，一个上游同步
 
 ### 推送打卡成功与否的消息（可选功能）
 
@@ -31,8 +27,9 @@
 
 额外创建一个[Repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")
 
-- Secret的Name为PUSHPLUS，注意PUSHPLUS要大写
-- Value为pushplus 推送加 的Token
+|Secret|Name|Value|
+|-|-|-|
+|1|PUSHPLUS|pushplus 推送加 的Token|
 
 ## FAQ
 
