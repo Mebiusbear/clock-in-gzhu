@@ -7,6 +7,7 @@ on:
     
 jobs:
   sync:
+    if: $current_repo_onwer != LihaoLikeOrangeJuice
     runs-on: ubuntu-22.04
     
     steps:
