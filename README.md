@@ -22,7 +22,7 @@
 - 第二个Secret的Name为MIMA，注意MIMA要大写
 - Value是密码
 
-最后开启[workflow](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow)，workflow有两个：一个打卡，一个上游同步
+最后开启[Workflows](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow)，有两个Workflows：一个打卡，一个上游同步
 
 ### 推送打卡成功与否的消息（可选功能）
 
