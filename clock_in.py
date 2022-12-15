@@ -188,7 +188,7 @@ login?service=https%3A%2F%2Fnewmy.gzhu.edu.cn%2Fup%2Fview%3Fm%3Dup"
             )[0]
             self.driver.execute_script("$(arguments[0]).click();", button)
 
-        logger.info("尝试提交表单")
+        logger.info("提交表单")
         self.driver.find_element(By.XPATH, "//nobr[contains(text(), '提交')]/..").click()
 
         self.wdwait.until(
