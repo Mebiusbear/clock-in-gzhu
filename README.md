@@ -2,10 +2,10 @@
 
 ## 简介
 
-脚本使用Github Actions进行健康打卡  
-将在北京时间07点30分自动运行  
-支持自动上游同步更新  
-支持pushplus 推送加 推送消息
+- 脚本使用Github Actions进行健康打卡  
+- 将在北京时间07点30分自动运行  
+- 支持自动上游同步更新  
+- 支持pushplus 推送加 推送消息
 
 ## 使用教程
 
@@ -27,9 +27,9 @@
 
 额外创建一个[Repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")
 
-|Secret|Name|Value|
-|-|-|-|
-|1|PUSHPLUS|pushplus 推送加 的Token|
+|Name|Value|
+|-|-|
+|PUSHPLUS|pushplus 推送加 的Token|
 
 ## FAQ
 
