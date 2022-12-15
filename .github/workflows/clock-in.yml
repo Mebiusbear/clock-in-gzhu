@@ -1,4 +1,4 @@
-name: clock-in
+name: Clock in
 
 on:
   schedule:
@@ -22,4 +22,4 @@ jobs:
           XUHAO: ${{ secrets.XUHAO }}
           MIMA: ${{ secrets.MIMA }}
           PUSHPLUS: ${{ secrets.PUSHPLUS }}
-        run: python clock_in.py
+        run: python3 clock_in.py
