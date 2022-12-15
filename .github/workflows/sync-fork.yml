@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-22.04
     
     steps:
-      - runs: echo $github.ref_name
+      - run: echo $github.ref_name
       - uses: tgymnich/fork-sync@v1.6.3
         with:
           owner: LihaoLikeOrangeJuice # 上游项目 owner
