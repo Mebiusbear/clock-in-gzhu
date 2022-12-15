@@ -30,7 +30,7 @@
 
 - 额外创建一个[Repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 - Secret的Name为PUSHPLUS，注意PUSHPLUS要大写
-- Value为pushplus 推送加 的token
+- Value为pushplus 推送加 的Token
 
 ## FAQ
 
