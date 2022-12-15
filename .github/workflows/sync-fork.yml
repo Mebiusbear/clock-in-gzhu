@@ -7,7 +7,7 @@ on:
     
 jobs:
   sync:
-    if: github.repository != 'LihaoLikeOrangeJuice/clock-in-gzhu'
+    if: github.repository_owner != LihaoLikeOrangeJuice
     runs-on: ubuntu-22.04
     
     steps:
@@ -15,4 +15,4 @@ jobs:
         with:
           owner: LihaoLikeOrangeJuice # 上游项目 owner
           head: master # 上游项目需要同步的分支
-          base: master # 需要同步到本项目的目标分支
+          base: github.ref_name # 需要同步的目标分支
