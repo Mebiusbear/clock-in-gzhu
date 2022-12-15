@@ -12,7 +12,6 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.6.3
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
           owner: LihaoLikeOrangeJuice # 上游项目 owner
           head: master # 上游项目需要同步的分支
           base: master # 需要同步到本项目的目标分支
