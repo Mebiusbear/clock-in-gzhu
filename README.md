@@ -12,7 +12,7 @@
 ### 必要设置
 
 1. Fork本项目并进入Fork的项目中
-2. 创建两个[Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")，如下表
+2. 创建两个[Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")
 
 |Secret|Name|Value|
 |-|-|-|
