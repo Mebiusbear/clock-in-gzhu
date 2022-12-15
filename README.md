@@ -10,7 +10,7 @@
 
 ### 必要设置
 
-创建两个Repository secrets（在Settings中的Actions secrets里）
+首先创建两个Repository secrets（在Settings中的Actions secrets里）
 
 - 第一个Secret的Name为XUHAO，注意XUHAO要大写
 - Value为学号
@@ -19,6 +19,8 @@
 
 - 第二个Secret的Name为MIMA，注意MIMA要大写
 - Value是密码
+
+[最后开启workflow](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow)
 
 ### 推送打卡成功与否的消息（可选功能）
 
