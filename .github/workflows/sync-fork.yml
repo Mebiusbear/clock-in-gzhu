@@ -13,6 +13,6 @@ jobs:
     steps:
       - uses: tgymnich/fork-sync@v1.6.3
         with:
-          owner: LihaoLikeOrangeJuice # 上游项目 owner
-          head: master # 上游项目需要同步的分支
-          base: master # 需要同步的目标分支
+          owner: LihaoLikeOrangeJuice # 上游项目owner
+          head: master # 上游项目分支
+          base: master # 目标分支
