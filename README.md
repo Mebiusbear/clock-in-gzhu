@@ -10,7 +10,7 @@
 
 ### 必要设置
 
-首先创建两个Repository secrets（在Settings中的Actions secrets里）
+[首先创建两个Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 
 - 第一个Secret的Name为XUHAO，注意XUHAO要大写
 - Value为学号
@@ -26,7 +26,7 @@
 
 #### pushplus 推送加 微信公众号
 
-- 额外创建一个Repository secret（在Settings中的Actions secrets里）
+- [额外创建一个Repository secret](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository)
 - Secret的Name为PUSHPLUS，注意PUSHPLUS要大写
 - Value为pushplus 推送加 的token
 
