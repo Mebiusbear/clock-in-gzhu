@@ -36,9 +36,3 @@
 ### Q: 脚本运行失败怎么办？
 
 如果你是第一次运行脚本，请先检查学号密码是否输入错误
-
-## License
-
-Copyright (c) LihaoLikeOrangeJuice. All rights reserved.
-
-Licensed under the [MIT](LICENSE) license.
