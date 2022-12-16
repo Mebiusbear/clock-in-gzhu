@@ -17,10 +17,10 @@
 1. Fork本项目并进入Fork的项目中
 2. 创建两个[Repository secrets](https://docs.github.com/en/actions/security-guides/encrypted-secrets#creating-encrypted-secrets-for-a-repository "教程")
 
-|Secret|Name|Value|
-|-|-|-|
-|1|XUHAO|学号|
-|2|MIMA|密码|
+|Name|Value|
+|-|-|
+|XUHAO|学号|
+|MIMA|密码|
 
 3. 开启[Workflows](https://docs.github.com/en/actions/managing-workflow-runs/disabling-and-enabling-a-workflow#enabling-a-workflow "教程")，有两个Workflows：一个打卡，一个上游同步
 
